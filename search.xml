@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>如何给Hexo加速</title>
+    <url>/2020/03/08/%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9FHexo/</url>
+    <content><![CDATA[<p>并没有摘要。</p>
+<a id="more"></a>
+
+<p>相信大家现在都有了自己的Hexo博客：taの优点很多，缺点很少</p>
+<p>但是我们担心的最大的缺点就是</p>
+<p>###网速慢</p>
+<p>为什么网速会慢呢？</p>
+<p>因为Githubの服务器在国外</p>
+<p>但我们只需要记住一件事:万物皆可托管码云</p>
+<p>废话不多说</p>
+<h1 id="Start"><a href="#Start" class="headerlink" title="Start!"></a>Start!</h1><p>首先，Git bash+node.js 搞起！</p>
+<p>然后，在<a href="https://gitee.com/" target="_blank" rel="noopener">码云</a>搞一个账号</p>
+<p>然后在git bash里面敲如下代码</p>
+<p><code>cd d:</code></p>
+<p><code>mkdir blog</code></p>
+<p><code>cd blog</code></p>
+<p><code>npm i -g hexo-cli</code></p>
+<p><code>hexo init</code></p>
+<p>等到gitbash出现</p>
+<p><code>INFO: start blogging with Hexo!</code></p>
+<p>时，你就成功了</p>
+<p><code>hexo s --debug</code>一下。</p>
+<p>然后在浏览器里输入<code>localhost:4000</code></p>
+<p>如果你没有乱改的话应该大概是这样的</p>
+<p><img src="https://chen1219.gitee.io/myblog/img/1/s6.png" alt=""></p>
+<p>在Git bash里CTRL+C就可以停止了</p>
+<p>接着，在码云新建一个仓库</p>
+<p><img src="https://s2.ax1x.com/2020/03/07/3OBh4O.jpg" alt=""></p>
+<p>看到我画红圈的那个了吗</p>
+<p>点一下那两张纸</p>
+<p>然后在GitBash里敲<code>npm install hexo-deployer-git --save</code></p>
+<p>接着，在config.yml里修改一下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><code class="hljs plain">deploy:<br>  type: &#39;git&#39;<br>  repo: &#39;CRTL+V&#39;或repo: &#39;https:&#x2F;&#x2F;gitee.com&#x2F;你的gitee用户名&#x2F;仓库名.git&#39;<br></code></pre></td></tr></table></figure>
+<p>之后，在GitBash里</p>
+<p><code>git config --global user.email &#39;你注册码云的邮箱&#39;</code><br><code>git config --global user.name &#39;你的码云用户名&#39;</code><br><code>hexo d</code></p>
+<p>之后会弹出来一个东西让你输入码云的账号密码</p>
+<p>然后，回到码云仓库，点击服务，选择Gitee Pages(这个功能需要手机验证码)</p>
+<p>选择更新</p>
+<p>然后到你的<code>仓库名.gitee.io</code>就可以了</p>
+<h2 id="重要须知"><a href="#重要须知" class="headerlink" title="重要须知"></a>重要须知</h2><p>dalao们只需要参照<a href="https://www.cnblogs.com/yuzijiangorz/p/12391972.html" target="_blank" rel="noopener">这里</a>把原来的仓库部署到码云，然后在重新部署gitee Pages就可以了</p>
+<h1 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h1><p>由于未知原因，请在每次发布blog时清空仓库，然后在重新部署gitee Pages</p>
+<p><strong>EOF</strong></p>
+]]></content>
+      <tags>
+        <tag>干货</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数论课程1</title>
+    <url>/2020/03/07/%E6%95%B0%E8%AE%BA%E8%AF%BE%E7%A8%8B1/</url>
+    <content><![CDATA[<p>一个刚学数论的蒟蒻の笔记</p>
+<a id="more"></a>
+<p>今天迟到了0.5hQWQ</p>
+<p>埃氏筛:</p>
+<p>要得到自然数n以内的全部素数，必须把不大于根号n的所有素数的倍数剔除，剩下的就是素数</p>
+<p>eg:</p>
+<p>从一到20:</p>
+<p>将2的倍数去掉</p>
+<p>将3的倍数去掉</p>
+<p>以此类推….<br>将不大于sqrt(20)的素数倍数剔除</p>
+<p>C++代码实现:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	<span class="hljs-keyword">int</span> n, s = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">bool</span> p[<span class="hljs-number">100001</span>];<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">100000</span>; i++)&#123;<br>		p[i] = <span class="hljs-literal">true</span>;<br>	&#125;<br>	p[<span class="hljs-number">1</span>] = <span class="hljs-literal">false</span>;<br>	<span class="hljs-built_in">cin</span> &gt;&gt; n;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d "</span>,<span class="hljs-number">2</span>);<span class="hljs-comment">//cout &lt;&lt; 2;</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i * i &lt;= n; i++)&#123;<br>		<span class="hljs-keyword">if</span>(p[i])<br>			<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = <span class="hljs-number">2</span>; i * j &lt;= n; j++)&#123;<br>				p[i * j] = <span class="hljs-literal">false</span>;<br>			&#125;<br>	&#125;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>; i &lt;= n; i++)&#123;<br>		<span class="hljs-keyword">if</span>(p[i]) &#123;<br>			 <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%3d "</span>, i);<br>		&#125;<br>	&#125; <br>	<span class="hljs-comment">//只是其中一种!</span><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>顺便记录一下记录程序运行时间的代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;ctime&gt;</span></span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span><br></span>&#123;<br>	<span class="hljs-keyword">clock_t</span> s,f;<br>	s=clock();<br>	<span class="hljs-comment">//<span class="hljs-doctag">TODO:</span>put the code Here.</span><br>	f=clock();<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Time: %d s\n"</span>,f-s);<br>&#125;<br></code></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>NOI ONline爆零记</title>
+    <url>/2020/03/07/NOI%20online%20%E7%88%86%E9%9B%B6%E8%AE%B0/</url>
+    <content><![CDATA[<p>因为本酱实在太蒻了，所以本酱报的普及。</p>
+<p>然而，网站炸了。</p>
+<p>不是我说，NOI就不能吧网站搭好一点吗？</p>
+<p><strong>EOF</strong></p>
+]]></content>
+      <tags>
+        <tag>爆零记</tag>
+      </tags>
+  </entry>
+</search>
