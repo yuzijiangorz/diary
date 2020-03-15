@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何给Hexo加速 |  yuzijiangorzのblog
+    数论笔记2 |  yuzijiangorzのblog
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -33,7 +33,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-如何加速Hexo" class="article article-type-post" itemscope
+  <article id="post-数论笔记2" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -41,7 +41,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何给Hexo加速
+  数论笔记2
 </h1>
   
 
@@ -50,8 +50,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/08/%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9FHexo/" class="article-date">
-  <time datetime="2020-03-08T07:10:10.000Z" itemprop="datePublished">2020-03-08</time>
+      <a href="/2020/03/14/%E6%95%B0%E8%AE%BA%E7%AC%94%E8%AE%B02/" class="article-date">
+  <time datetime="2020-03-14T10:05:20.000Z" itemprop="datePublished">2020-03-14</time>
 </a>
       
       
@@ -61,7 +61,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">442字</span>
+            <span class="post-count">366字</span>
         </span>
     </span>
 
@@ -70,7 +70,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -81,8 +81,6 @@
 
     
     
-    <div class="tocbot"></div>
-
 
 
 
@@ -97,48 +95,21 @@
       
 
       
-      <p>并没有摘要。</p>
+      <p>一周一更的<br>今天第二次上课呢QAQ</p>
 <a id="more"></a>
 
-<p>相信大家现在都有了自己的Hexo博客：taの优点很多，缺点很少</p>
-<p>但是我们担心的最大的缺点就是</p>
-<p>###网速慢</p>
-<p>为什么网速会慢呢？</p>
-<p>因为Githubの服务器在国外</p>
-<p>但我们只需要记住一件事:万物皆可托管码云</p>
-<p>废话不多说</p>
-<h1 id="Start"><a href="#Start" class="headerlink" title="Start!"></a>Start!</h1><p>首先，Git bash+node.js 搞起！</p>
-<p>然后，在<a href="https://gitee.com/" target="_blank" rel="noopener">码云</a>搞一个账号</p>
-<p>然后在git bash里面敲如下代码</p>
-<p><code>cd d:</code></p>
-<p><code>mkdir blog</code></p>
-<p><code>cd blog</code></p>
-<p><code>npm i -g hexo-cli</code></p>
-<p><code>hexo init</code></p>
-<p>等到gitbash出现</p>
-<p><code>INFO: start blogging with Hexo!</code></p>
-<p>时，你就成功了</p>
-<p><code>hexo s --debug</code>一下。</p>
-<p>然后在浏览器里输入<code>localhost:4000</code></p>
-<p>如果你没有乱改的话应该大概是这样的</p>
-<p><img src="https://chen1219.gitee.io/myblog/img/1/s6.png" alt=""></p>
-<p>在Git bash里CTRL+C就可以停止了</p>
-<p>接着，在码云新建一个仓库</p>
-<p><img src="https://s2.ax1x.com/2020/03/07/3OBh4O.jpg" alt=""></p>
-<p>看到我画红圈的那个了吗</p>
-<p>点一下那两张纸</p>
-<p>然后在GitBash里敲<code>npm install hexo-deployer-git --save</code></p>
-<p>接着，在config.yml里修改一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">deploy:<br>  type: &#39;git&#39;<br>  repo: &#39;CRTL+V&#39;或repo: &#39;https:&#x2F;&#x2F;gitee.com&#x2F;你的gitee用户名&#x2F;仓库名.git&#39;<br></code></pre></td></tr></table></figure>
-<p>之后，在GitBash里</p>
-<p><code>git config --global user.email &#39;你注册码云的邮箱&#39;</code><br><code>git config --global user.name &#39;你的码云用户名&#39;</code><br><code>hexo d</code></p>
-<p>之后会弹出来一个东西让你输入码云的账号密码</p>
-<p>然后，回到码云仓库，点击服务，选择Gitee Pages(这个功能需要手机验证码)</p>
-<p>选择更新</p>
-<p>然后到你的<code>仓库名.gitee.io</code>就可以了</p>
-<h2 id="重要须知"><a href="#重要须知" class="headerlink" title="重要须知"></a>重要须知</h2><p>dalao们只需要参照<a href="https://www.cnblogs.com/yuzijiangorz/p/12391972.html" target="_blank" rel="noopener">这里</a>把原来的仓库部署到码云，然后在重新部署gitee Pages就可以了</p>
-<h1 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h1><p>由于未知原因，请在每次发布blog时清空仓库，然后在重新部署gitee Pages</p>
-<p><strong>EOF</strong></p>
+<p>欧几里得:以除数和余数反复除，当余数为零时，取除数为最大公约数。<br><del>真的神奇</del><br>做的题:</p>
+<p>1.素数个数</p>
+<p>求x,y之间の素数个数</p>
+<p>input：</p>
+<p>x,y</p>
+<p>output:</p>
+<p>xy之间的素数个数</p>
+<p>代码:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isp</span><span class="hljs-params">(<span class="hljs-keyword">int</span> o)</span><br></span>&#123;<br>	<span class="hljs-keyword">if</span>(o==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">if</span>(o==<span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">2</span>;i*i&lt;=o;i++) <span class="hljs-keyword">if</span>(!x%i) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> <span class="hljs-keyword">const</span> *argv[])</span><br></span>&#123;<br>	<span class="hljs-keyword">int</span> x,y,s=<span class="hljs-number">0</span>;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d %d"</span>,&amp;x,&amp;y);<br>	<span class="hljs-keyword">if</span>(x&gt;y) swap(x,y);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=x;i&lt;y;i++) <span class="hljs-keyword">if</span>(isp(i)) s++;<br><br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>,s);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>	<span class="hljs-comment">//完活QWQ</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>埃氏筛:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;<br><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> LL; <br><span class="hljs-keyword">bool</span> numlist[<span class="hljs-number">200000001</span>]; <span class="hljs-comment">//生成不大于 n 的所有质数a[2]=0</span><br><span class="hljs-keyword">int</span> prime[<span class="hljs-number">10000001</span>], cnt;<br><span class="hljs-keyword">int</span> a[<span class="hljs-number">1000010</span>];<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">work</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span></span>&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++)&#123;<br>        <span class="hljs-keyword">if</span>(numlist[i] == <span class="hljs-literal">false</span>)&#123;<br>            prime[cnt++] = i ;<span class="hljs-comment">//cnt++;prime[cnt];prime[0]=2,prime[1]=3,prime[2]=5,prime[3]=7</span><br>            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i; i * j &lt;= n; j++)<br>                numlist[i * j] = <span class="hljs-literal">true</span>;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span>;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;<br>	work(<span class="hljs-number">46340</span>);<br>	<span class="hljs-comment">//int cnt = eshi_shi(46000, prime);</span><br>	LL L, R;<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%lld%lld"</span>,&amp;L, &amp;R);<br>	<span class="hljs-comment">//memset(a, 0, sizeof(a));</span><br>	<span class="hljs-comment">/*cin &gt;&gt; cnt;<br>	for(int i = 0; i &lt; cnt; i++)<br>	cout &lt;&lt; prime[i] &lt;&lt; ' ' ;*/</span><br>	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; cnt; i++)&#123;<br>		<span class="hljs-keyword">for</span>(LL j = max(<span class="hljs-number">2l</span>l, (L - <span class="hljs-number">1</span>) / prime[i] + <span class="hljs-number">1</span>) * prime[i]; j &lt;= R; j += prime[i])&#123;<br>			a[j - L] = <span class="hljs-number">1</span>;<br>		&#125;<br>	&#125;<br>	<span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(LL i = L; i &lt;= R; i++)&#123;<br>		<span class="hljs-keyword">if</span>(a[i - L] == <span class="hljs-number">0</span>) ans++; <br>	&#125;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, ans);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
       
       <!-- reward -->
@@ -204,14 +175,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yuzijiangorz.gitee.io/2020/03/08/%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9FHexo/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yuzijiangorz.gitee.io/2020/03/14/%E6%95%B0%E8%AE%BA%E7%AC%94%E8%AE%B02/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B9%B2%E8%B4%A7/" rel="tag">干货</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E8%AE%BA/" rel="tag">数论</a></li></ul>
 
 
     </footer>
@@ -222,19 +193,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/14/%E6%95%B0%E8%AE%BA%E7%AC%94%E8%AE%B02/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            数论笔记2
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/03/07/%E6%95%B0%E8%AE%BA%E7%AC%94%E8%AE%B01/" class="article-nav-link">
+      <a href="/2020/03/08/%E5%A6%82%E4%BD%95%E5%8A%A0%E9%80%9FHexo/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">数论笔记1</div>
+        <div class="article-nav-title">如何给Hexo加速</div>
       </a>
     
   </nav>
