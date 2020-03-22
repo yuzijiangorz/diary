@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>about va_args</title>
+    <title>关于 VA ARGS</title>
     <url>/2020/03/21/%E5%85%B3%E4%BA%8Eva-args/</url>
     <content><![CDATA[<p>关于<code>__VA_ARGS__</code></p>
 <a id="more"></a>
