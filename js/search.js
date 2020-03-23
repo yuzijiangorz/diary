@@ -1,62 +1,47 @@
-// A local search script with the help of [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
-// Copyright (C) 2015 
-// Joseph Pan <http://github.com/wzpan>
-// Shuhao Mao <http://github.com/maoshuhao>
-// This library is free software; you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as
-// published by the Free Software Foundation; either version 2.1 of the
-// License, or (at your option) any later version.
-// 
-// This library is distributed in the hope that it will be useful, but
-// WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-// Lesser General Public License for more details.
-// 
-// You should have received a copy of the GNU Lesser General Public
-// License along with this library; if not, write to the Free Software
-// Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-// 02110-1301 USA
-// 
-
-var searchFunc = function (path, search_id, content_id) {
+let searchFunc = function (path, search_id, content_id) {
+  // 0x00. environment initialization
   'use strict';
-  var BTN = "<button type='button' class='local-search-close' id='local-search-close'></button>";
+  let $input = document.getElementById(search_id);
+  let $resultContent = document.getElementById(content_id);
+  $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
   $.ajax({
+    // 0x01. load xml file
     url: path,
     dataType: "xml",
     success: function (xmlResponse) {
-      // get the contents from search data
-      var datas = $("entry", xmlResponse).map(function () {
+      // 0x02. parse xml file
+      let datas = $("entry", xmlResponse).map(function () {
         return {
           title: $("title", this).text(),
           content: $("content", this).text(),
           url: $("url", this).text()
         };
       }).get();
-
-      var $input = document.getElementById(search_id);
-      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "";
 
       $input.addEventListener('input', function () {
-        var str = '<ul class="search-result-list">';
-        var keywords = this.value.trim().toLowerCase().split(/[\s]+/);
+        // 0x03. parse query to keywords list
+        let str = '<ul class=\"search-result-list\">';
+        let keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
         $resultContent.innerHTML = "";
         if (this.value.trim().length <= 0) {
           return;
         }
-        // perform local searching
+        // 0x04. perform local searching
         datas.forEach(function (data) {
-          var isMatch = true;
-          // var content_index = [];
+          let isMatch = true;
+          let content_index = [];
           if (!data.title || data.title.trim() === '') {
             data.title = "Untitled";
           }
-          var data_title = data.title.trim().toLowerCase();
-          var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-          var data_url = data.url;
-          var index_title = -1;
-          var index_content = -1;
-          var first_occur = -1;
+          let orig_data_title = data.title.trim();
+          let data_title = orig_data_title.toLowerCase();
+          let orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+          let data_content = orig_data_content.toLowerCase();
+          let data_url = data.url;
+          let index_title = -1;
+          let index_content = -1;
+          let first_occur = -1;
           // only match artiles with not empty contents
           if (data_content !== '') {
             keywords.forEach(function (keyword, i) {
@@ -78,14 +63,14 @@ var searchFunc = function (path, search_id, content_id) {
           } else {
             isMatch = false;
           }
-          // show search results
+          // 0x05. show search results
           if (isMatch) {
-            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-            var content = data.content.trim().replace(/<[^>]+>/g, "");
+            str += "<li><a href='" + data_url + "' class='search-result-title' target='_blank'>" + orig_data_title + "</a>";
+            let content = orig_data_content;
             if (first_occur >= 0) {
               // cut out 100 characters
-              var start = first_occur - 20;
-              var end = first_occur + 80;
+              let start = first_occur - 20;
+              let end = first_occur + 80;
 
               if (start < 0) {
                 start = 0;
@@ -99,11 +84,11 @@ var searchFunc = function (path, search_id, content_id) {
                 end = content.length;
               }
 
-              var match_content = content.substr(start, end);
+              let match_content = content.substr(start, end);
 
               // highlight all keywords
               keywords.forEach(function (keyword) {
-                var regS = new RegExp(keyword, "gi");
+                let regS = new RegExp(keyword, "gi");
                 match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
               });
 
@@ -114,14 +99,19 @@ var searchFunc = function (path, search_id, content_id) {
         });
         str += "</ul>";
         if (str.indexOf('<li>') === -1) {
-          return $resultContent.innerHTML = BTN + "<div class=\"search-result-empty\"><p><i class=\"fe fe-tired\"></i> 没有找到内容，更换下搜索词试试吧~<p></div>";
+          return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
         }
-        $resultContent.innerHTML = BTN + str;
+        $resultContent.innerHTML = str;
       });
     }
   });
-  $(document).on('click', '#local-search-close', function () {
+  $(document).on('click', '#local-search-close', function() {
     $('#local-search-input').val('');
-    $('#local-search-result').html('');
+    $('local-search-result').html('');
   });
-};
+}
+
+let getSearchFile = function(){
+    let path = "/search.xml";
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
